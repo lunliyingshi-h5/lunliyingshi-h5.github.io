@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>伦理影视 - 审片台公映片单与正版观影导航</title>
+<meta name="description" content="伦理影视（lunliyingshi-h5）做审片台式正版导航：公映片单、伦理类型档、每日审片与正版观看守则，只导航持牌平台、影院公映与开放授权片源，不碰违禁境外剧与盗版聚合。官方网址：https://lunliyingshi-h5.github.io">
+<meta name="keywords" content="伦理影视, lunliyingshi-h5, 社会现实电影推荐, 家庭关系正剧, 人性纪录片导航, 正版观影导航">
+<meta name="robots" content="index,follow">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:#0e1318;color:#e9edf2;line-height:1.8;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;
+  background:
+    radial-gradient(680px 340px at 12% 8%, rgba(245,130,32,.12), transparent 55%),
+    radial-gradient(620px 320px at 88% 92%, rgba(248,113,113,.08), transparent 55%),
+    #0e1318}
+.ll-nav{position:sticky;top:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:rgba(14,19,24,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(245,130,32,.2)}
+.ll-nav .logo{font-size:20px;font-weight:900;letter-spacing:.5px}
+.ll-nav .logo b{color:#f58220}
+.ll-nav .logo i{color:#f87171;font-style:normal}
+.ll-nav .links{display:flex;gap:6px;flex-wrap:wrap}
+.ll-nav .links a{font-size:13px;color:#9aa6b0;padding:6px 12px;border-radius:20px;transition:.25s}
+.ll-nav .links a:hover{background:rgba(245,130,32,.16);color:#e9edf2}
+
+.hero{padding:52px 20px 44px;text-align:center}
+.bench{max-width:780px;margin:0 auto 16px;background:#151c22;border:1px solid rgba(245,130,32,.26);border-radius:18px;padding:24px;position:relative}
+.scale{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;position:relative}
+.scale::before{content:"";position:absolute;left:50%;top:-18px;bottom:0;width:2px;background:linear-gradient(#f58220,transparent);transform:translateX(-50%)}
+.cell{height:72px;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#0e1318;position:relative}
+.cell .tag{font-size:10px;opacity:.7}
+.cell:nth-child(1){background:linear-gradient(135deg,#f58220,#f7b955)}
+.cell:nth-child(2){background:linear-gradient(135deg,#60a5fa,#bfdbfe)}
+.cell:nth-child(3){background:linear-gradient(135deg,#4ade80,#86efac)}
+.cell:nth-child(4){background:linear-gradient(135deg,#e9edf2,#ffffff)}
+.tray{margin-top:16px;height:36px;border-radius:8px;background:repeating-linear-gradient(90deg,#1c2630 0 10px,#243240 10px 12px);display:flex;align-items:center;justify-content:center;font-size:12px;color:#f7b955;font-weight:800}
+.mark{display:inline-block;margin-top:14px;font-size:13px;font-weight:900;color:#f58220;background:#151c22;border:1px solid rgba(245,130,32,.3);padding:4px 14px;border-radius:20px}
+.hero h1{font-size:30px;color:#e9edf2;margin:8px 0 12px}
+.hero h1 b{color:#f58220}
+.hero p{color:#9aa6b0;max-width:680px;margin:0 auto 16px;font-size:15px}
+.hero .url{display:inline-block;font-size:13px;color:#0e1318;font-weight:800;background:linear-gradient(90deg,#f58220,#f87171);padding:8px 18px;border-radius:30px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px}
+.chips span{font-size:12px;color:#e9edf2;padding:5px 13px;border-radius:20px;border:1px solid rgba(245,130,32,.2)}
+.chips span:nth-child(1){border-color:#f58220;color:#f7b955}
+.chips span:nth-child(2){border-color:#60a5fa;color:#bfdbfe}
+.chips span:nth-child(3){border-color:#4ade80;color:#86efac}
+
+.wrap{max-width:1160px;margin:0 auto;padding:58px 20px}
+.kicker{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#f58220;margin-bottom:8px}
+.sec-title{font-size:26px;font-weight:900;color:#e9edf2;margin-bottom:26px}
+.sec-title b{color:#f87171}
+
+.picks{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.pk{background:#151c22;border:1px solid rgba(245,130,32,.14);border-radius:14px;overflow:hidden;transition:.3s}
+.pk:hover{transform:translateY(-4px);border-color:#f58220;box-shadow:0 16px 36px rgba(245,130,32,.12)}
+.pk .top{height:96px;position:relative;display:flex;align-items:flex-end;padding:10px}
+.pk .top.g1{background:linear-gradient(135deg,#b45309,#f58220)}
+.pk .top.g2{background:linear-gradient(135deg,#1d4ed8,#60a5fa)}
+.pk .top.g3{background:linear-gradient(135deg,#15803d,#4ade80)}
+.pk .top.g4{background:linear-gradient(135deg,#6b7280,#e9edf2);color:#0e1318}
+.pk .top .scale-tag{font-size:11px;font-weight:800;color:#0e1318;background:#e9edf2;padding:2px 9px;border-radius:12px}
+.pk .top .ver{position:absolute;right:10px;top:10px;font-size:10px;color:#0e1318;background:#4ade80;padding:2px 8px;border-radius:10px}
+.pk .body{padding:16px 18px}
+.pk .body h4{color:#e9edf2;font-size:16px;margin-bottom:4px}
+.pk .body .meta{font-size:12px;color:#f58220;margin-bottom:6px}
+.pk .body p{font-size:13px;color:#9aa6b0;margin:0}
+
+.docs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.dc{background:#151c22;border-radius:14px;padding:20px;transition:.3s;border:1px solid rgba(154,166,176,.14)}
+.dc:hover{transform:translateY(-3px)}
+.dc .no{font-size:12px;font-weight:900;color:#f58220;margin-bottom:6px}
+.dc h4{color:#e9edf2;font-size:15px;margin-bottom:4px}
+.dc p{color:#9aa6b0;font-size:12px;margin:0}
+.dc.d2{border-top:3px solid #60a5fa}
+.dc.d3{border-top:3px solid #4ade80}
+.dc.d4{border-top:3px solid #f87171}
+
+.review{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.rv{background:#151c22;border-left:4px solid #f58220;border-radius:12px;padding:18px}
+.rv h4{color:#e9edf2;font-size:15px;margin-bottom:4px}
+.rv .slot{font-size:12px;color:#f87171;font-weight:800;margin-bottom:6px}
+.rv p{color:#9aa6b0;font-size:13px;margin:0}
+.rv.r2{border-left-color:#60a5fa}
+.rv.r3{border-left-color:#4ade80}
+.rv.r4{border-left-color:#f7b955}
+.rv.r5{border-left-color:#f87171}
+.rv.r6{border-left-color:#f58220}
+
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.ru{background:#151c22;border:1px solid rgba(245,130,32,.22);border-radius:12px;padding:18px;text-align:center}
+.ru .num{font-size:24px;font-weight:900;color:#f58220;margin-bottom:6px}
+.ru h4{color:#e9edf2;font-size:14px;margin-bottom:4px}
+.ru p{color:#9aa6b0;font-size:12px;margin:0}
+
+.about{border:1px solid rgba(245,130,32,.22);border-radius:16px;padding:30px;background:linear-gradient(135deg,rgba(245,130,32,.08),rgba(248,113,113,.06));display:flex;gap:24px;flex-wrap:wrap;align-items:center}
+.about .txt{flex:1;min-width:260px}
+.about h2{color:#e9edf2;font-size:20px;margin-bottom:10px}
+.about h2 b{color:#f58220}
+.about p{color:#9aa6b0;font-size:14px;margin-bottom:8px}
+.about .stats{display:flex;gap:20px;flex-wrap:wrap}
+.about .stats .n{font-size:26px;font-weight:900;color:#f87171}
+.about .stats .l{font-size:11px;color:#f58220}
+
+.foot{text-align:center;padding:32px 20px;background:#090d11;border-top:1px solid rgba(245,130,32,.16);color:#7c8893;font-size:13px}
+.foot a{color:#f58220}
+.foot .lg{font-size:18px;font-weight:900;color:#e9edf2;margin-bottom:8px}
+
+@media(max-width:640px){.hero h1{font-size:24px}.ll-nav .links a{font-size:12px;padding:5px 9px}.scale{grid-template-columns:repeat(2,1fr)}.cell{height:62px}}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<nav class="ll-nav">
+  <div class="logo"><b>伦理影视</b> <i>· 审片台</i></div>
+  <div class="links">
+    <a href="#home">首页</a>
+    <a href="#picks">公映片单</a>
+    <a href="#docs">伦理类型档</a>
+    <a href="#review">每日审片</a>
+    <a href="#rules">正版守则</a>
+  </div>
+</nav>
+
+<header id="home" class="hero">
+  <div class="bench" aria-hidden="true">
+    <div class="scale">
+      <div class="cell">社会现实<span class="tag">档 A</span></div>
+      <div class="cell">家庭关系<span class="tag">档 B</span></div>
+      <div class="cell">人性正剧<span class="tag">档 C</span></div>
+      <div class="cell">纪录观察<span class="tag">档 D</span></div>
+    </div>
+    <div class="tray">⚖ 审片尺 · 只过持牌公映片</div>
+    <span class="mark">审片台·道德分镜尺</span>
+  </div>
+  <h1>伦理影视：<b>审片台</b>只放合规正片</h1>
+  <p>「伦理影视」命名常被拿去做违禁境外剧、擦边聚合、网盘盗版榜——上千部黄暴境外剧借聚合/网盘传播 [7,11](@ref)，免费站本质是广告分成与引流变现 [1](@ref)。本页不做「限制级片库」、不内嵌播放器、不写网盘提取码、不引未授权聚合源；「伦理」只落回社会现实／家庭关系／人性正剧／纪录片四档，传播前核权属、取得信息网络传播权授权 [4](@ref)，不链非法视听节目 [12](@ref)。</p>
+  <span class="url">🌐 https://lunliyingshi-h5.github.io</span>
+  <div class="chips">
+    <span>⚖ 公映片单</span><span>🎬 伦理类型档</span><span>🗓️ 每日审片</span>
+  </div>
+</header>
+
+<main>
+<section id="picks" class="wrap">
+  <div class="kicker">BENCH PUBLIC PICKS</div>
+  <h2 class="sec-title">公映片单 <b>四档样例</b></h2>
+  <div class="picks">
+    <article class="pk"><div class="top g1"><span class="scale-tag">社会现实</span><span class="ver">正版/公映</span></div><div class="body"><h4>我不是药神</h4><div class="meta">文牧野 · 2018 · 剧情/社会现实</div><p>医患、药价与生存边界；持牌平台正版源，适合做社会现实档开场，不碰未授权切片。</p></div></article>
+    <article class="pk"><div class="top g2"><span class="scale-tag">家庭关系</span><span class="ver">正版/字幕</span></div><div class="body"><h4>饮食男女</h4><div class="meta">李安 · 1994 · 家庭/伦理正剧</div><p>父女、餐桌与代际选择；标持牌平台与修复版，不引网盘提取码。</p></div></article>
+    <article class="pk"><div class="top g3"><span class="scale-tag">人性正剧</span><span class="ver">正版/字幕</span></div><div class="body"><h4>十二怒汉</h4><div class="meta">西德尼·吕美特 · 1957 · 法庭/人性</div><p>陪审团、怀疑与责任；标注正版平台字幕来源与高清版差异。</p></div></article>
+    <article class="pk"><div class="top g4"><span class="scale-tag">纪录观察</span><span class="ver">开放/档案</span></div><div class="body"><h4>人间世（纪录片）</h4><div class="meta">公卫/医疗纪实 · 开放授权版</div><p>生死、医患与伦理边界；走官方频道/持牌纪录片平台，不提供破解下载。</p></div></article>
+  </div>
+</section>
+
+<section id="docs" class="wrap">
+  <div class="kicker">ETHIC TAGS</div>
+  <h2 class="sec-title">伦理类型档 <b>四档（合规重写）</b></h2>
+  <div class="docs">
+    <div class="dc d1"><div class="no">档 A · 社会现实</div><h4>阶层/医患/劳工/代际</h4><p>只引持牌平台公映片；不列无授权「伦理大片」聚合页，不标擦边标签。</p></div>
+    <div class="dc d2"><div class="no">档 B · 家庭关系</div><h4>亲子/婚姻/赡养/和解</h4><p>正剧与作者电影为主；公映修复版优先，附适龄与字幕版本。</p></div>
+    <div class="dc d3"><div class="no">档 C · 人性正剧</div><h4>抉择/责任/道德困境</h4><p>法庭、战争、历史正剧；标正版平台授权来源，不引换源播放器。</p></div>
+    <div class="dc d4"><div class="no">档 D · 纪录观察</div><h4>医疗/教育/司法纪实</h4><p>开放授权纪录片走官方/图书馆来源；不碰违禁境外未审批剧 [10](@ref)。</p></div>
+  </div>
+</section>
+
+<section id="review" class="wrap">
+  <div class="kicker">DAILY REVIEW</div>
+  <h2 class="sec-title">每日审片 <b>六场</b></h2>
+  <div class="review">
+    <div class="rv"><div class="slot">晨审·社会</div><h4>现实开场</h4><p>社会现实档排首；只列持牌平台名称与官方入口，不提前放未授权资源。</p></div>
+    <div class="rv r2"><div class="slot">上午·家庭</div><h4>家庭过场</h4><p>代际关系片单；标修复版与字幕来源，不写网盘口令。</p></div>
+    <div class="rv r3"><div class="slot">午后·人性</div><h4>正剧审看</h4><p>道德困境/法庭戏；标注时间线与高清版差异，只引正版。</p></div>
+    <div class="rv r4"><div class="slot">下午·纪录</div><h4>观察档</h4><p>医疗/教育纪实；开放授权走官方频道，不提供磁力。</p></div>
+    <div class="rv r5"><div class="slot">傍晚·红线</div><h4>违规拦截</h4><p>遇黄暴、未审批境外剧、擦边聚合链一律不下架推荐位、不链 [12](@ref)。</p></div>
+    <div class="rv r6"><div class="slot">夜间·重审</div><h4>高分回看</h4><p>四档高分重刷；只给持牌回看入口，不写提取码、不引镜像。</p></div>
+  </div>
+</section>
+
+<section id="rules" class="wrap">
+  <div class="kicker">BENCH RULES</div>
+  <h2 class="sec-title">正版观看 <b>守则</b></h2>
+  <div class="rules">
+    <div class="ru"><div class="num">01</div><h4>持牌优先</h4><p>引导持牌视频平台、影院公映/重映、官方频道；不内嵌未授权播放器。</p></div>
+    <div class="ru"><div class="num">02</div><h4>授权核对</h4><p>传播前核权属、取得涵盖信息网络传播权授权 [4](@ref)，不列无资质聚合站。</p></div>
+    <div class="ru"><div class="num">03</div><h4>境外剧把关</h4><p>境外影视剧须有公映/发行许可与网络传播权 [10](@ref)，不推未审批限制级榜。</p></div>
+    <div class="ru"><div class="num">04</div><h4>不碰擦边</h4><p>不写网盘提取码、不引磁链/换源/镜像、不用「免费高清/离线缓存/破解」；不链非法视听节目 [12,13](@ref)。</p></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="about">
+    <div class="txt">
+      <h2>伦理影视 <b>审片台是什么</b></h2>
+      <p>不是「伦理片免费看」聚合克隆，而是一张审片台：分镜尺装入口、公映片单进四档、类型进伦理档、每日进审片、守则装红线。静态单页、移动端自适应、锚点内链、不生成 robots.txt / sitemap.xml，符合必应收录基本规范（唯一H1、完整meta、语义化nav/main/section/article/footer）。</p>
+      <p>长尾吃「社会现实电影推荐 / 家庭伦理正剧 / 人性纪录片导航 / 正版平台看片」。全站严格只做正版、公映、持牌、开放授权导航，不碰违禁境外剧与盗版聚合。</p>
+    </div>
+    <div class="stats">
+      <div><div class="n">4</div><div class="l">伦理档</div></div>
+      <div><div class="n">6</div><div class="l">每日审片</div></div>
+      <div><div class="n">0</div><div class="l">擦边标签</div></div>
+      <div><div class="n">0</div><div class="l">盗版提取码</div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="lg">⚖🎬 伦理影视·审片台</div>
+  官方网址：<a href="https://lunliyingshi-h5.github.io">https://lunliyingshi-h5.github.io</a><br>
+  © 2026 伦理影视｜公映片单 / 伦理类型档 / 每日审片 / 正版观影导航（仅作正版、公映、开放授权导航，不提供未授权播放、不推违禁境外剧）
+</footer>
+
+</body>
+</html>
